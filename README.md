@@ -10,20 +10,24 @@ Demo REST service created with Node.js and Express.
 - `GET /api/items`: Returns demo items list
 - `POST /api/items`: Adds a new item (`name`, `description`)
 
+## Environment Variables
+
+- `APP_PASSWORD`: Required. Application secret password to start the service.
+
 ## Quickstart
 
 Run via Docker:
 
 ```sh
 docker build -t demo:latest .
-docker run -d -p 3000:3000 --name demo-api demo:latest
+docker run -d -p 3000:3000 -e APP_PASSWORD=demosecret123 --name demo-api demo:latest
 ```
 
 Or run directly with Node:
 
 ```sh
 npm install
-npm start
+APP_PASSWORD=demosecret123 npm start
 ```
 
 ## GitHub Actions

@@ -1,5 +1,13 @@
 const express = require('express');
 
+// Validate mandatory environment variable
+const appPassword = process.env.APP_PASSWORD;
+if (!appPassword) {
+  console.error('Error: APP_PASSWORD is not set and is required.');
+  console.error('You must specify APP_PASSWORD to start.');
+  process.exit(1);
+}
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -17,6 +25,7 @@ app.get('/', (req, res) => {
   res.json({
     message: 'Welcome! The demo Node.js API server is running successfully.',
     version: '1.0.0',
+    authConfigured: Boolean(appPassword),
     endpoints: {
       health: '/api/health',
       hello: '/api/hello?name=YourName',
