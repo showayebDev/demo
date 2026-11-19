@@ -1,9 +1,12 @@
-name: Build and Push Docker Image
+name: Manual Docker Build and Push
 
 on:
-  push:
-    branches: [ "main", "master" ]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Image tag to publish"
+        required: false
+        default: "latest"
 
 jobs:
   build:
@@ -34,4 +37,5 @@ jobs:
           context: .
           push: true
           tags: |
+            ${{ steps.repo.outputs.IMAGE }}:${{ github.event.inputs.tag || 'latest' }}
             ${{ steps.repo.outputs.IMAGE }}:latest

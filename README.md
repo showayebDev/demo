@@ -25,3 +25,7 @@ Or run directly with Node:
 npm install
 npm start
 ```
+
+## GitHub Actions
+
+Image publishing is triggered manually under the repository's **Actions** tab by choosing **Manual Docker Build and Push** and clicking **Run workflow**.
