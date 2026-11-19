@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "A simple Node.js REST API with Docker support",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "api",
+    "express",
+    "docker",
+    "demo"
+  ],
+  "author": "Showayeb",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
